@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>jQuery Geofetch Example</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="../jquery.geofetch.js"></script>
+	<script type="text/javascript">
+		var geofetch = $.geofetch({flickr_api_key: '<YOUR FLICKR API KEY HERE>'});
+		geofetch.flickr({
+			lng: -122.3122, lat: 47.642289,
+			callback: function(data) {
+				var list = $('ul#results');
+				$.each(data, function(i, item) {
+					list.append('<li>'+item.imageSrc+item.title+'</li>');
+				});
+			}
+		});
+	</script>
+</head>
+<body>
+<h2>jQuery Geofetch Example</h2>
+<p>Make sure to set your flickr_api_key in this example.</p>
+<ul id="results"></ul>
+</body>
+</html>
